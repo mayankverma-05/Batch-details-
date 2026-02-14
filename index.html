@@ -3,49 +3,58 @@
 <head>
     <title>Batch Details - CSE in AI</title>
     <style>
+        /* Body & Background */
         body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(-45deg, #ff512f, #dd2476, #24c6dc, #514a9d);
-    background-size: 400% 400%;
-    animation: gradientMove 8s ease infinite;
-}
-
-@keyframes gradientMove {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-        
-
-        .container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 20px;
-            width: 350px;
-            text-align: center;
-            color: white;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% {transform: translateY(0px);}
-    50% {transform: translateY(-10px);}
-    100% {transform: translateY(0px);}
-}
-        
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #ff512f, #dd2476, #24c6dc, #514a9d);
+            background-size: 400% 400%;
+            animation: gradientMove 8s ease infinite;
         }
 
+        @keyframes gradientMove {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        /* Container */
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            width: 380px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {transform: translateY(0px);}
+            50% {transform: translateY(-10px);}
+            100% {transform: translateY(0px);}
+        }
+
+        /* Logo */
+        .logo {
+            width: 100px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #fff;
+        }
+
+        /* Heading */
         h2 {
             margin-bottom: 20px;
         }
 
+        /* Input */
         input {
             width: 90%;
             padding: 10px;
@@ -55,6 +64,7 @@
             outline: none;
         }
 
+        /* Button */
         button {
             background: #ff9800;
             border: none;
@@ -70,12 +80,14 @@
             transform: scale(1.05);
         }
 
+        /* Result Card */
         .result-card {
             margin-top: 20px;
             padding: 15px;
             background: rgba(255,255,255,0.2);
             border-radius: 15px;
             animation: fadeIn 0.5s ease-in-out;
+            box-shadow: 0 0 10px #00ffcc;
         }
 
         @keyframes fadeIn {
@@ -87,9 +99,12 @@
 <body>
 
 <div class="container">
+    <!-- College Logo -->
+    <img src="logo.png" alt="College Logo" class="logo">
+    
     <h2>🎓 CSE in AI - Batch Finder</h2>
 
-    <input type="text" id="roll" placeholder="Enter Roll Number">
+    <input type="text" id="roll" placeholder="Enter Roll Number or Name">
     <br>
     <button onclick="searchStudent()">Search</button>
 
@@ -129,16 +144,17 @@ const students = [
 ];
 
 function searchStudent() {
-    const rollInput = document.getElementById("roll").value.trim();
+    const rollInput = document.getElementById("roll").value.trim().toLowerCase();
     const resultDiv = document.getElementById("result");
 
-    const student = students.find(s => s.roll === rollInput);
+    // Search by Roll OR Name
+    const student = students.find(s => s.roll === rollInput || s.name.toLowerCase() === rollInput);
 
     if (student) {
         resultDiv.innerHTML = `
             <div class="result-card">
                 <h3>${student.name}</h3>
-                <p>Roll: ${student.roll}</p>
+                <p>Roll: ${student.roll || "N/A"}</p>
                 <p>Branch: ${student.branch}</p>
             </div>
         `;
@@ -149,4 +165,5 @@ function searchStudent() {
 </script>
 
 </body>
-</html>
+    </html>
+    
