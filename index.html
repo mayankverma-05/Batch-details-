@@ -1,84 +1,134 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Batch Details</title>
+    <title>Batch Details - CSE in AI</title>
     <style>
         body {
-            font-family: Arial;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            width: 350px;
             text-align: center;
-            margin-top: 50px;
+            color: white;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
         input {
-            padding: 8px;
+            width: 90%;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            outline: none;
         }
+
         button {
-            padding: 8px 15px;
-        }
-        #result {
-            margin-top: 20px;
+            background: #ff9800;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
             font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff5722;
+            transform: scale(1.05);
+        }
+
+        .result-card {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
         }
     </style>
 </head>
 <body>
 
-    <h2>Batchmate Detail Finder</h2>
+<div class="container">
+    <h2>🎓 CSE in AI - Batch Finder</h2>
 
     <input type="text" id="roll" placeholder="Enter Roll Number">
+    <br>
     <button onclick="searchStudent()">Search</button>
 
     <div id="result"></div>
+</div>
 
-    <script>
-        const students = [
-    {roll: "", name: "Saurabh Gupta", phone: "", branch: "CSE in AI"},
-    {roll: "2", name: "Abhay Diwakar", phone: "", branch: "CSE in AI"},
-    {roll: "15", name: "Mayank Verma", phone: "", branch: "CSE in AI"},
-    {roll: "9", name: "Chetan Singh", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Indushekhar Pardhan", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Akriti Kumari", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Shivansh Agrahari", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Govind Yadav", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Rahul Bhuriya", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Anil Khichar", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Abhimanyu Pratap Singh", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Vishesh Singh", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Vineet Bisht", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Sachin Yadav", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Barakunta Siddharth", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Shivangi Tiwari", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Krishna Tripathi", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Krishiv Parashar", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Pragati Kushwaha", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Asha Kumari", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Ramu Kumar", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Anshika Sharma", phone: "", branch: "CSE in AI"},
-    {roll: "20", name: "Sandeep Panchariya", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Abhishek Meena", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Subhajit Bawri", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Subhu Parashar", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Shantanu Baghel", phone: "", branch: "CSE in AI"},
-    {roll: "", name: "Deepansh Arya", phone: "", branch: "CSE in AI"}
+<script>
+const students = [
+    {roll: "", name: "Saurabh Gupta", branch: "CSE in AI"},
+    {roll: "", name: "Abhay Diwakar", branch: "CSE in AI"},
+    {roll: "", name: "Mayank Verma", branch: "CSE in AI"},
+    {roll: "", name: "Chetan Singh", branch: "CSE in AI"},
+    {roll: "", name: "Indushekhar Pardhan", branch: "CSE in AI"},
+    {roll: "", name: "Akriti Kumari", branch: "CSE in AI"},
+    {roll: "", name: "Shivansh Agrahari", branch: "CSE in AI"},
+    {roll: "", name: "Govind Yadav", branch: "CSE in AI"},
+    {roll: "", name: "Rahul Bhuriya", branch: "CSE in AI"},
+    {roll: "", name: "Anil Khichar", branch: "CSE in AI"},
+    {roll: "", name: "Abhimanyu Pratap Singh", branch: "CSE in AI"},
+    {roll: "", name: "Vishesh Singh", branch: "CSE in AI"},
+    {roll: "", name: "Vineet Bisht", branch: "CSE in AI"},
+    {roll: "", name: "Sachin Yadav", branch: "CSE in AI"},
+    {roll: "", name: "Barakunta Siddharth", branch: "CSE in AI"},
+    {roll: "", name: "Shivangi Tiwari", branch: "CSE in AI"},
+    {roll: "", name: "Krishna Tripathi", branch: "CSE in AI"},
+    {roll: "", name: "Krishiv Parashar", branch: "CSE in AI"},
+    {roll: "", name: "Pragati Kushwaha", branch: "CSE in AI"},
+    {roll: "", name: "Asha Kumari", branch: "CSE in AI"},
+    {roll: "", name: "Ramu Kumar", branch: "CSE in AI"},
+    {roll: "", name: "Anshika Sharma", branch: "CSE in AI"},
+    {roll: "", name: "Sandeep Panchariya", branch: "CSE in AI"},
+    {roll: "", name: "Abhishek Meena", branch: "CSE in AI"},
+    {roll: "", name: "Subhajit Bawri", branch: "CSE in AI"},
+    {roll: "", name: "Subhu Parashar", branch: "CSE in AI"},
+    {roll: "", name: "Shantanu Baghel", branch: "CSE in AI"},
+    {roll: "", name: "Deepansh Arya", branch: "CSE in AI"}
 ];
-            
 
-        function searchStudent() {
-            const rollInput = document.getElementById("roll").value;
-            const resultDiv = document.getElementById("result");
+function searchStudent() {
+    const rollInput = document.getElementById("roll").value.trim();
+    const resultDiv = document.getElementById("result");
 
-            const student = students.find(s => s.roll === rollInput);
+    const student = students.find(s => s.roll === rollInput);
 
-            if (student) {
-                resultDiv.innerHTML = `
-                    Name: ${student.name} <br>
-                    Phone: ${student.phone} <br>
-                    branch: ${student.branch} <br>
-                `;
-            } else {
-                resultDiv.innerHTML = "Student not found!";
-            }
-        }
-    </script>
+    if (student) {
+        resultDiv.innerHTML = `
+            <div class="result-card">
+                <h3>${student.name}</h3>
+                <p>Roll: ${student.roll}</p>
+                <p>Branch: ${student.branch}</p>
+            </div>
+        `;
+    } else {
+        resultDiv.innerHTML = `<div class="result-card">Student not found</div>`;
+    }
+}
+</script>
 
 </body>
 </html>
