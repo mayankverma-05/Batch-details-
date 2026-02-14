@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batch Details</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 8px;
+        }
+        button {
+            padding: 8px 15px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Batchmate Detail Finder</h2>
+
+    <input type="text" id="roll" placeholder="Enter Roll Number">
+    <button onclick="searchStudent()">Search</button>
+
+    <div id="result"></div>
+
+    <script>
+        const students = [
+            {roll: "101", name: "Rahul", phone: "9876543210", email: "rahul@gmail.com"},
+            {roll: "102", name: "Aman", phone: "9123456780", email: "aman@gmail.com"},
+            {roll: "103", name: "Priya", phone: "9988776655", email: "priya@gmail.com"}
+        ];
+
+        function searchStudent() {
+            const rollInput = document.getElementById("roll").value;
+            const resultDiv = document.getElementById("result");
+
+            const student = students.find(s => s.roll === rollInput);
+
+            if (student) {
+                resultDiv.innerHTML = `
+                    Name: ${student.name} <br>
+                    Phone: ${student.phone} <br>
+                    Email: ${student.email}
+                `;
+            } else {
+                resultDiv.innerHTML = "Student not found!";
+            }
+        }
+    </script>
+
+</body>
+</html>
