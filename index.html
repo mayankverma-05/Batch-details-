@@ -31,10 +31,36 @@
 
     <script>
         const students = [
-            {roll: "101", name: "Rahul", phone: "9876543210", email: "rahul@gmail.com"},
-            {roll: "102", name: "Aman", phone: "9123456780", email: "aman@gmail.com"},
-            {roll: "103", name: "Priya", phone: "9988776655", email: "priya@gmail.com"}
-        ];
+    {roll: "", name: "Saurabh Gupta", phone: "", branch: "CSE in AI"},
+    {roll: "2", name: "Abhay Diwakar", phone: "", branch: "CSE in AI"},
+    {roll: "15", name: "Mayank Verma", phone: "", branch: "CSE in AI"},
+    {roll: "9", name: "Chetan Singh", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Indushekhar Pardhan", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Akriti Kumari", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Shivansh Agrahari", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Govind Yadav", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Rahul Bhuriya", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Anil Khichar", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Abhimanyu Pratap Singh", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Vishesh Singh", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Vineet Bisht", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Sachin Yadav", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Barakunta Siddharth", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Shivangi Tiwari", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Krishna Tripathi", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Krishiv Parashar", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Pragati Kushwaha", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Asha Kumari", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Ramu Kumar", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Anshika Sharma", phone: "", branch: "CSE in AI"},
+    {roll: "20", name: "Sandeep Panchariya", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Abhishek Meena", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Subhajit Bawri", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Subhu Parashar", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Shantanu Baghel", phone: "", branch: "CSE in AI"},
+    {roll: "", name: "Deepansh Arya", phone: "", branch: "CSE in AI"}
+];
+            
 
         function searchStudent() {
             const rollInput = document.getElementById("roll").value;
@@ -46,7 +72,7 @@
                 resultDiv.innerHTML = `
                     Name: ${student.name} <br>
                     Phone: ${student.phone} <br>
-                    Email: ${student.email}
+                    branch: ${student.branch} <br>
                 `;
             } else {
                 resultDiv.innerHTML = "Student not found!";
