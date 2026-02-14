@@ -4,14 +4,23 @@
     <title>Batch Details - CSE in AI</title>
     <style>
         body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #ff512f, #dd2476, #24c6dc, #514a9d);
+    background-size: 400% 400%;
+    animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+        
 
         .container {
             background: rgba(255, 255, 255, 0.15);
